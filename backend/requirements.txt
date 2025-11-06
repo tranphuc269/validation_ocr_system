@@ -1,0 +1,9 @@
+fastapi==0.115.5
+uvicorn[standard]==0.32.0
+pydantic==2.9.2
+pydantic-settings==2.6.1
+python-multipart==0.0.17
+requests==2.32.3
+python-dotenv==1.0.1
+pymongo==4.9.2
+

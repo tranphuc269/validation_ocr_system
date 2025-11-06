@@ -1,0 +1,2775 @@
+{
+    "information": [
+        {
+            "contract_no": {
+                "confidence": 1.0,
+                "value": "01/VIETTEL-ZTE/2024",
+                "type": "text",
+                "bbox_ids": [],
+                "available": 1
+            },
+            "contract_date": {
+                "confidence": 1.0,
+                "value": "27/09/2024",
+                "type": "text",
+                "bbox_ids": [],
+                "available": 1
+            },
+            "project_name": {
+                "confidence": 1.0,
+                "value": "Project of investing to expand DWDM/Microwave network 2023",
+                "type": "text",
+                "bbox_ids": [],
+                "available": 1
+            },
+            "bidding_pack": {
+                "confidence": 1.0,
+                "value": "04/2024-MTD: Upgradding ZTE DWDM transmission networks and related service",
+                "type": "text",
+                "bbox_ids": [],
+                "available": 1
+            },
+            "party_a_name": {
+                "confidence": 1.0,
+                "value": "VIETTEL GROUP",
+                "type": "text",
+                "bbox_ids": [],
+                "available": 1
+            },
+            "party_b_list": {
+                "type": "list[dictionary]",
+                "value": [
+                    {
+                        "party_b_name": {
+                            "confidence": 1.0,
+                            "value": "ZTE CORPORATION",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "payment_method": {
+                            "confidence": 1.0,
+                            "value": "Telegraphic Transfer (T/T)",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_name": {
+                            "confidence": 1.0,
+                            "value": "ZTE CORPORATION",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_addr": {
+                            "confidence": 1.0,
+                            "value": "ZTE Plaza, Keji Road South, Hi-Tech Industrial Park, Nanshan, Shenzhen, P.R.China",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_bank_name": {
+                            "confidence": 1.0,
+                            "value": "Bank of China, Shenzhen Branch",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_bank_acc_no": {
+                            "confidence": 1.0,
+                            "value": "7744 5796 0706",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_bank_swift": {
+                            "confidence": 1.0,
+                            "value": "BKCHCNBJ45A",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "foreign_contract_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "local_contract_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_foreign_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_local_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_common_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_sla_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_perform_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_shipping_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "collect_disburse_price": {
+                            "confidence": 1.0,
+                            "value": "835572,000 VND",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "tax_description": {
+                            "confidence": 1.0,
+                            "value": "The Contract Value includes Value Added Tax (VAT) and any other relate taxes",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "table_contract_price": {
+                            "type": "list[unstructured_table]",
+                            "value": [
+                                {
+                                    "rows": [
+                                        {
+                                            "id": 0,
+                                            "page_id": 20,
+                                            "cell_ids": [
+                                                0,
+                                                1
+                                            ]
+                                        },
+                                        {
+                                            "id": 1,
+                                            "page_id": 20,
+                                            "cell_ids": [
+                                                2,
+                                                3
+                                            ]
+                                        }
+                                    ],
+                                    "cells": [
+                                        {
+                                            "id": 0,
+                                            "page_id": 20,
+                                            "row_id": 0,
+                                            "start_row": 0,
+                                            "end_row": 0,
+                                            "start_col": 0,
+                                            "end_col": 0,
+                                            "confidence": 1.0,
+                                            "coordinates": [
+                                                [
+                                                    0.14524164903264813,
+                                                    0.07892115900345913
+                                                ],
+                                                [
+                                                    0.28398579201934704,
+                                                    0.07892115900345913
+                                                ],
+                                                [
+                                                    0.28398579201934704,
+                                                    0.12684616580512262
+                                                ],
+                                                [
+                                                    0.14524164903264813,
+                                                    0.12684616580512262
+                                                ]
+                                            ],
+                                            "box_ids": [],
+                                            "value": "",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "id": 1,
+                                            "page_id": 20,
+                                            "row_id": 0,
+                                            "start_row": 0,
+                                            "end_row": 0,
+                                            "start_col": 1,
+                                            "end_col": 1,
+                                            "confidence": 0.9988429595174344,
+                                            "coordinates": [
+                                                [
+                                                    0.28765303808948006,
+                                                    0.07892115900345913
+                                                ],
+                                                [
+                                                    0.903750377871826,
+                                                    0.07892115900345913
+                                                ],
+                                                [
+                                                    0.903750377871826,
+                                                    0.12684616580512262
+                                                ],
+                                                [
+                                                    0.28765303808948006,
+                                                    0.12684616580512262
+                                                ]
+                                            ],
+                                            "box_ids": [
+                                                1027,
+                                                1028
+                                            ],
+                                            "value": "hưởng đến bất kỳ quyền khởi kiện hoặc biện pháp khắc phục của Chủ đầu tư trước đó hoặc sau đó.",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "id": 2,
+                                            "page_id": 20,
+                                            "row_id": 1,
+                                            "start_row": 1,
+                                            "end_row": 1,
+                                            "start_col": 0,
+                                            "end_col": 0,
+                                            "confidence": 0.9989622907396092,
+                                            "coordinates": [
+                                                [
+                                                    0.14524164903264813,
+                                                    0.12948423957402153
+                                                ],
+                                                [
+                                                    0.28398579201934704,
+                                                    0.12948423957402153
+                                                ],
+                                                [
+                                                    0.28398579201934704,
+                                                    0.3713076683897547
+                                                ],
+                                                [
+                                                    0.14524164903264813,
+                                                    0.3713076683897547
+                                                ]
+                                            ],
+                                            "box_ids": [
+                                                1030,
+                                                1031
+                                            ],
+                                            "value": "30. Hạn chế xuất khẩu",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "id": 3,
+                                            "page_id": 20,
+                                            "row_id": 1,
+                                            "start_row": 1,
+                                            "end_row": 1,
+                                            "start_col": 1,
+                                            "end_col": 1,
+                                            "confidence": 0.996467395338348,
+                                            "coordinates": [
+                                                [
+                                                    0.28765303808948006,
+                                                    0.12948423957402153
+                                                ],
+                                                [
+                                                    0.903750377871826,
+                                                    0.12948423957402153
+                                                ],
+                                                [
+                                                    0.903750377871826,
+                                                    0.3713076683897547
+                                                ],
+                                                [
+                                                    0.28765303808948006,
+                                                    0.3713076683897547
+                                                ]
+                                            ],
+                                            "box_ids": [
+                                                1029,
+                                                1032,
+                                                1033,
+                                                1034,
+                                                1035,
+                                                1036,
+                                                1037,
+                                                1038,
+                                                1039,
+                                                1040
+                                            ],
+                                            "value": "Trường hợp quốc gia, vùng lãnh thổ cung cấp hàng hóa, dịch vụ có các quy định thương mại dẫn tới việc hạn chế xuất khẩu, gây khó khăn cho Nhà thầu trong việc thực hiện các nghĩa vụ hợp đồng, Nhà thầu không bắt buộc phải hoàn thành nghĩa vụ giao hàng, thực hiện dịch vụ với điều kiện là Nhà thầu cung cấp cho Chủ đầu tư các tài liệu chứng minh việc đã hoàn thành tất cả các thủ tục xuất khẩu cần thiết, bao gồm cả xin giấy phép hoặc ủy quyền để xuất khẩu hàng hóa, dịch vụ theo hợp đồng. Trong trường hợp này, Chủ đầu tư có thể chấm dứt hợp đồng với Nhà thầu.",
+                                            "type": "text"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "foreign_contract_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "local_contract_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_foreign_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_local_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_common_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_sla_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_perform_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_shipping_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "collect_disburse_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "delivery_place": {
+                            "confidence": 1.0,
+                            "value": "Hà Nội, Đà Nẵng, Đồng Nai",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "implement_period": {
+                            "confidence": 1.0,
+                            "value": "1385 days from the effective date of the contract to the expiration of the warranty according to the provisions of the contract",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bond_good": {
+                            "confidence": 1.0,
+                            "value": "Within ten (10) days from the Contract signing date, the Supplier has to furnish the Customer with an Advance Payment Bond",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_good_value": {
+                            "confidence": 1.0,
+                            "value": "fifteen percent (15%) of the Payment Bond",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_good_expire": {
+                            "confidence": 1.0,
+                            "value": "within ten (10) working days from Contract signing date",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bond_service": {
+                            "confidence": 1.0,
+                            "value": "equivalent to 15% of the total payable value for Services",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_service_value": {
+                            "confidence": 1.0,
+                            "value": "fifteen (15%) of the ttaol Payment Bond",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_service_expire": {
+                            "confidence": 1.0,
+                            "value": "",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_common": {
+                            "confidence": 1.0,
+                            "value": "",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_value": {
+                            "confidence": 1.0,
+                            "value": "2% of total contract price",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_expire": {
+                            "confidence": 1.0,
+                            "value": "",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_sla_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Performance Bond for the First Phase",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "bond_value": {
+                                        "value": "ten percent (10%)",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "bond_expire": {
+                                        "value": "This Performance Bond for SLA Service shall be valid until one (01) month after the Quarterly Report",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "warranty_bond_rate": {
+                            "confidence": 1.0,
+                            "value": "five percent (05%)",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "warranty_bond_expire": {
+                            "confidence": 1.0,
+                            "value": "",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        }
+                    },
+                    {
+                        "party_b_name": {
+                            "confidence": 1.0,
+                            "value": "HUAWEI TECHNOLOGIES CO., LTD.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "payment_method": {
+                            "confidence": 1.0,
+                            "value": "Wire Transfer",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_name": {
+                            "confidence": 1.0,
+                            "value": "HUAWEI TECHNOLOGIES CO., LTD.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_addr": {
+                            "confidence": 1.0,
+                            "value": "Bantian, Longgang District, Shenzhen, 518129, P.R. China",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_bank_name": {
+                            "confidence": 1.0,
+                            "value": "Industrial and Commercial Bank of China (ICBC), Shenzhen Branch",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_bank_acc_no": {
+                            "confidence": 1.0,
+                            "value": "6222 0212 3456 7890 123",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_bank_swift": {
+                            "confidence": 1.0,
+                            "value": "ICBKCNBJ",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "foreign_contract_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "local_contract_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_foreign_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_local_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_common_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_sla_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_perform_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_shipping_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "collect_disburse_price": {
+                            "confidence": 1.0,
+                            "value": "1,250,000,000 VND",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "tax_description": {
+                            "confidence": 1.0,
+                            "value": "The Contract Value is exclusive of VAT and all other applicable taxes.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "table_contract_price": {
+                            "type": "list[unstructured_table]",
+                            "value": []
+                        },
+                        "foreign_contract_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "local_contract_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_foreign_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_local_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_common_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_sla_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_perform_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_shipping_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "collect_disburse_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "delivery_place": {
+                            "confidence": 1.0,
+                            "value": "Hồ Chí Minh, Cần Thơ, Hải Phòng",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "implement_period": {
+                            "confidence": 1.0,
+                            "value": "900 days from the date of final acceptance to the end of the warranty period.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bond_good": {
+                            "confidence": 1.0,
+                            "value": "An Advance Payment Guarantee must be provided by the Supplier within thirty (30) days of the contract's effective date.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_good_value": {
+                            "confidence": 1.0,
+                            "value": "ten percent (10%) of the total Goods value",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_good_expire": {
+                            "confidence": 1.0,
+                            "value": "no later than fifteen (15) business days after Contract signing",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bond_service": {
+                            "confidence": 1.0,
+                            "value": "equivalent to 20% of the total price for Services",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_service_value": {
+                            "confidence": 1.0,
+                            "value": "twenty (20%) of the total Services Payment",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_service_expire": {
+                            "confidence": 1.0,
+                            "value": "Valid until the advance payment is fully recovered.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_common": {
+                            "confidence": 1.0,
+                            "value": "Required for the entire duration of the implementation period.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_value": {
+                            "confidence": 1.0,
+                            "value": "five percent (5%) of contract value",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_expire": {
+                            "confidence": 1.0,
+                            "value": "Six (6) months after the expected date of Provisional Acceptance Certificate.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_sla_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Performance Bond for the First Phase",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "bond_value": {
+                                        "value": "ten percent (10%)",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "bond_expire": {
+                                        "value": "This Performance Bond for SLA Service shall be valid until one (01) month after the Quarterly Report",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "warranty_bond_rate": {
+                            "confidence": 1.0,
+                            "value": "ten percent (10%)",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "warranty_bond_expire": {
+                            "confidence": 1.0,
+                            "value": "Thirty (30) days after the end of the Warranty Period.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        }
+                    },
+                    {
+                        "party_b_name": {
+                            "confidence": 1.0,
+                            "value": "ERICSSON AB",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "payment_method": {
+                            "confidence": 1.0,
+                            "value": "Letter of Credit (L/C)",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_name": {
+                            "confidence": 1.0,
+                            "value": "ERICSSON AB",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_addr": {
+                            "confidence": 1.0,
+                            "value": "Torshamnsgatan 21, 164 80 Kista, Stockholm, Sweden",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_bank_name": {
+                            "confidence": 1.0,
+                            "value": "Nordea Bank AB, Stockholm",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_bank_acc_no": {
+                            "confidence": 1.0,
+                            "value": "SE91 9500 0099 6034 0000 0123",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "ben_bank_swift": {
+                            "confidence": 1.0,
+                            "value": "NDEASESS",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "foreign_contract_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "local_contract_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_foreign_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_local_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_common_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_sla_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_perform_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_shipping_price_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "amount_before_tax": {
+                                        "value": "2993881,45 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "tax_amount": {
+                                        "value": "72665,61 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "total_amount": {
+                                        "value": "3066546,06 USD",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "collect_disburse_price": {
+                            "confidence": 1.0,
+                            "value": "550,750,500 VND",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "tax_description": {
+                            "confidence": 1.0,
+                            "value": "The Contract Price is inclusive of all taxes, duties, and levies whatsoever, including VAT.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "table_contract_price": {
+                            "type": "list[unstructured_table]",
+                            "value": []
+                        },
+                        "foreign_contract_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "local_contract_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_foreign_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "material_local_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_common_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_sla_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_perform_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "service_shipping_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "collect_disburse_payment_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Payment for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_name": {
+                                        "value": "First payment",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_value": {
+                                        "value": "50%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_value": {
+                                        "value": "15%",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "advance_payment_details": {
+                                        "value": "50% of total Payable value of Goods minus the advance payment value of 15% of the total Payable value for Goods",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "delivery_place": {
+                            "confidence": 1.0,
+                            "value": "Quảng Ninh, Thanh Hóa, Bình Dương",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "implement_period": {
+                            "confidence": 1.0,
+                            "value": "1095 days from the commencement date until the final payment and clearance of all liabilities.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bond_good": {
+                            "confidence": 1.0,
+                            "value": "The Supplier shall provide a Bank Guarantee for Advance Payment before receiving any advance.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_good_value": {
+                            "confidence": 1.0,
+                            "value": "eight percent (8%) of the total Contract Price for Goods",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_good_expire": {
+                            "confidence": 1.0,
+                            "value": "upon initial receipt of the Advance Payment",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bond_service": {
+                            "confidence": 1.0,
+                            "value": "equivalent to 10% of the payment for Installation and Commissioning",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_service_value": {
+                            "confidence": 1.0,
+                            "value": "ten (10%) of the total Service Cost",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "adv_payment_bnd_service_expire": {
+                            "confidence": 1.0,
+                            "value": "Co-terminus with the expiry of the Advance Payment itself.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_common": {
+                            "confidence": 1.0,
+                            "value": "Must be submitted in the form of an irrevocable bank guarantee.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_value": {
+                            "confidence": 1.0,
+                            "value": "3.5% of the total amount payable",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_expire": {
+                            "confidence": 1.0,
+                            "value": "Until Final Acceptance is issued by the Customer.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "performance_bond_sla_items": {
+                            "type": "structured_table",
+                            "value": [
+                                {
+                                    "phase_name": {
+                                        "value": "Performance Bond for the First Phase",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "bond_value": {
+                                        "value": "ten percent (10%)",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    },
+                                    "bond_expire": {
+                                        "value": "This Performance Bond for SLA Service shall be valid until one (01) month after the Quarterly Report",
+                                        "confidence": 1.0,
+                                        "bbox_ids": [],
+                                        "type": "text",
+                                        "available": 1
+                                    }
+                                }
+                            ]
+                        },
+                        "warranty_bond_rate": {
+                            "confidence": 1.0,
+                            "value": "two point five percent (2.5%)",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        },
+                        "warranty_bond_expire": {
+                            "confidence": 1.0,
+                            "value": "Ninety (90) days following the completion of the warranty period.",
+                            "type": "text",
+                            "bbox_ids": [],
+                            "available": 1
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "processing_time": 18.5174,
+    "core_id": "",
+    "request_id": "b945a31a-ba2d-11f0-81f0-0242ac110002",
+    "version": "v0.0.9",
+    "errorCode": 2000,
+    "errorMessage": "Success"
+}

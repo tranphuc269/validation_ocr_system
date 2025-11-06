@@ -33,9 +33,15 @@
             </div>
           </div>
         </div>
-        <div class="mt-4 flex items-center gap-4">
+        <div class="mt-4 flex items-center gap-4 flex-wrap">
           <button @click="startValidation" :disabled="validating" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:bg-gray-400">
             {{ validating ? 'Validating all uploads...' : 'Run Validation (All Uploads)' }}
+          </button>
+          <button @click="exportExcel" :disabled="uploads.length === 0" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Export Excel Report
           </button>
           <div v-if="job" class="text-sm text-gray-600">
             Status: <span class="font-semibold">{{ job.status }}</span>
@@ -402,6 +408,31 @@ function goBack() {
     router.push(`/projects/${document.value.project_id}/documents`)
   } else {
     router.push('/projects')
+  }
+}
+
+async function exportExcel() {
+  try {
+    const response = await api.get(`/api/documents/${documentId}/export-excel`, {
+      responseType: 'blob'
+    })
+    const blob = new Blob([response.data], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    })
+    const url = window.URL.createObjectURL(blob)
+    const link = window.document.createElement('a')
+    link.href = url
+    const filename = response.headers['content-disposition']
+      ? response.headers['content-disposition'].split('filename=')[1].replace(/"/g, '')
+      : `report_${document.value?.name || 'document'}_${new Date().toISOString().split('T')[0]}.xlsx`
+    link.setAttribute('download', filename)
+    window.document.body.appendChild(link)
+    link.click()
+    link.remove()
+    window.URL.revokeObjectURL(url)
+  } catch (error) {
+    console.error('Failed to export Excel:', error)
+    alert('Failed to export Excel report')
   }
 }
 

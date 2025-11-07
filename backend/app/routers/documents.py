@@ -3,8 +3,8 @@ from pathlib import Path
 from datetime import datetime
 from io import BytesIO
 
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
-from fastapi.responses import StreamingResponse
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Request
+from fastapi.responses import StreamingResponse, FileResponse
 from pymongo.database import Database
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -144,8 +144,61 @@ def list_uploads(doc_id: str, db: Database = Depends(get_db)):
     return out
 
 
+@router.get("/upload/{upload_id}", response_model=schemas.UploadOut)
+def get_upload(upload_id: str, db: Database = Depends(get_db)):
+    upload = crud.get_upload_raw(db, upload_id)
+    if not upload:
+        raise HTTPException(status_code=404, detail="Upload not found")
+    return schemas.UploadOut(
+        id=str(upload.get("_id")),
+        document_id=upload.get("document_id"),
+        file_path=upload.get("file_path"),
+        user_input_json_path=upload.get("user_input_json_path"),
+        created_at=upload.get("created_at"),
+    )
+
+
+@router.get("/upload/{upload_id}/user-input", response_model=dict[str, str])
+def get_upload_user_input(upload_id: str, db: Database = Depends(get_db)):
+    upload = db["uploads"].find_one({"_id": crud._oid(upload_id)})
+    if not upload:
+        raise HTTPException(status_code=404, detail="Upload not found")
+    path = upload.get("user_input_json_path")
+    if not path:
+        raise HTTPException(status_code=404, detail="User input not uploaded")
+    file_path = Path(path)
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="User input file missing")
+    try:
+        data = json.loads(file_path.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            raise ValueError("Invalid JSON structure")
+        normalized: dict[str, str] = {}
+        for key, value in data.items():
+            normalized[str(key)] = "" if value is None else str(value)
+        return normalized
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=400, detail="Invalid user input JSON content")
+
+
+@router.get("/upload/{upload_id}/file")
+def get_upload_file(upload_id: str, db: Database = Depends(get_db)):
+    upload = crud.get_upload_raw(db, upload_id)
+    if not upload:
+        raise HTTPException(status_code=404, detail="Upload not found")
+    file_path = upload.get("file_path")
+    if not file_path:
+        raise HTTPException(status_code=404, detail="File not found")
+    path = Path(file_path)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="File missing on server")
+    return FileResponse(path, filename=path.name)
+
+
 @router.get("/{doc_id}/export-excel")
-def export_excel_report(doc_id: str, db: Database = Depends(get_db)):
+def export_excel_report(doc_id: str, request: Request, db: Database = Depends(get_db)):
     """Export validation report to Excel for a document"""
     doc = crud.get_document_raw(db, doc_id)
     if not doc:
@@ -173,7 +226,7 @@ def export_excel_report(doc_id: str, db: Database = Depends(get_db)):
     
     # Sheet 1: Summary
     ws_summary = wb.create_sheet("Summary")
-    ws_summary.append(["File Name", "Upload Date", "Overall Accuracy", "Total Fields", "Status"])
+    ws_summary.append(["File Name", "Upload Date", "Overall Accuracy", "Total Fields", "Status", "Download Link"])
     
     # Style header
     for cell in ws_summary[1]:
@@ -200,6 +253,7 @@ def export_excel_report(doc_id: str, db: Database = Depends(get_db)):
             overall_accuracy = 0.0
             status = "Not Validated"
         
+        download_url = str(request.url_for("get_upload_file", upload_id=upload_id))
         summary_data.append({
             "file_name": file_name,
             "upload_date": upload_date,
@@ -207,6 +261,7 @@ def export_excel_report(doc_id: str, db: Database = Depends(get_db)):
             "total_fields": len(results),
             "status": status,
             "upload_id": upload_id,
+            "download_url": download_url,
         })
         
         # Collect details
@@ -228,7 +283,13 @@ def export_excel_report(doc_id: str, db: Database = Depends(get_db)):
             f"{row_data['overall_accuracy'] * 100:.2f}%",
             row_data["total_fields"],
             row_data["status"],
+            row_data["download_url"],
         ])
+        row_idx = ws_summary.max_row
+        link_cell = ws_summary.cell(row=row_idx, column=6)
+        link_cell.hyperlink = row_data["download_url"]
+        link_cell.value = "Download"
+        link_cell.style = "Hyperlink"
     
     # Style summary rows
     for row in ws_summary.iter_rows(min_row=2, max_row=ws_summary.max_row):
@@ -243,6 +304,8 @@ def export_excel_report(doc_id: str, db: Database = Depends(get_db)):
                     cell.fill = PatternFill(start_color="FFEB9C", end_color="FFEB9C", fill_type="solid")
                 else:
                     cell.fill = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
+            if cell.column == 6:
+                cell.alignment = center_align
     
     # Auto-adjust column widths for summary
     for column in ws_summary.columns:

@@ -74,7 +74,29 @@
 
         <!-- Right: results for selected upload -->
         <div class="bg-white rounded-lg shadow p-6 lg:col-span-2">
-          <h2 class="text-xl font-semibold mb-4">Validation Results</h2>
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between mb-4">
+            <div>
+              <h2 class="text-xl font-semibold">Validation Results</h2>
+              <p v-if="selectedUpload" class="text-sm text-gray-600 break-all mt-1">
+                File: {{ selectedUpload.file_path.split('/').pop() }}
+              </p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div v-if="currentUploadResults && currentUploadResults.length" class="text-sm text-gray-600 text-right">
+                Overall Accuracy:<br />
+                <span class="font-semibold text-blue-600">
+                  {{ (currentUploadResults.reduce((sum, r) => sum + r.accuracy, 0) / currentUploadResults.length * 100).toFixed(2) }}%
+                </span>
+              </div>
+              <button
+                v-if="selectedUpload"
+                @click="goToUploadDetail"
+                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              >
+                View Detail
+              </button>
+            </div>
+          </div>
           <div v-if="!selectedUpload" class="text-gray-500 text-center py-12">
             <p>Select a file from the left to view validation results</p>
           </div>
@@ -82,12 +104,6 @@
             <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
           </div>
           <div v-else-if="currentUploadResults && currentUploadResults.length > 0" class="space-y-4">
-            <div class="flex items-center justify-between">
-              <h3 class="text-lg font-semibold">File: {{ selectedUpload.file_path.split('/').pop() }}</h3>
-              <div class="text-sm text-gray-600">
-                Overall Accuracy: <span class="font-semibold text-blue-600">{{ (currentUploadResults.reduce((sum, r) => sum + r.accuracy, 0) / currentUploadResults.length * 100).toFixed(2) }}%</span>
-              </div>
-            </div>
             <div class="overflow-x-auto">
               <table class="w-full border-collapse min-w-[600px]">
                 <thead>
@@ -119,6 +135,82 @@
             <p>No validation results found for this upload.</p>
             <p class="text-sm mt-2">Run validation first to see results.</p>
           </div>
+
+          <div v-if="selectedUpload" class="mt-8 border-t pt-6">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <h3 class="text-lg font-semibold">Desired User Values</h3>
+              <div class="flex items-center gap-2">
+                <button
+                  v-if="editingUserValues"
+                  @click="cancelEditUserValues"
+                  class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  v-if="!editingUserValues"
+                  @click="startEditUserValues"
+                  :disabled="userInputLoading"
+                  class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
+                >
+                  Edit Desired Values
+                </button>
+              </div>
+            </div>
+
+            <div v-if="userInputLoading" class="text-center py-6">
+              <div class="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+            </div>
+            <div v-else>
+              <div v-if="editingUserValues">
+                <div v-if="textFields.length || Object.keys(userForm).length" class="space-y-4">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div v-for="field in (textFields.length ? textFields : Object.keys(userForm))" :key="field">
+                      <label class="block text-sm font-medium text-gray-700 mb-1">{{ field }}</label>
+                      <input
+                        v-model="userForm[field]"
+                        type="text"
+                        :placeholder="`Enter ${field}`"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex justify-end gap-3">
+                    <button @click="cancelEditUserValues" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Cancel</button>
+                    <button
+                      @click="submitUserForm"
+                      :disabled="userInputSaving"
+                      class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400"
+                    >
+                      {{ userInputSaving ? 'Saving...' : 'Save Values' }}
+                    </button>
+                  </div>
+                </div>
+                <div v-else class="text-sm text-gray-500">No fields available to edit. Upload a sample JSON first.</div>
+              </div>
+              <div v-else>
+                <div v-if="Object.keys(selectedUploadUserInput).length" class="overflow-x-auto">
+                  <table class="w-full border-collapse min-w-[480px]">
+                    <thead>
+                      <tr class="bg-gray-100">
+                        <th class="border border-gray-300 px-4 py-2 text-left w-[160px]">Field</th>
+                        <th class="border border-gray-300 px-4 py-2 text-left">User Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(val, key) in selectedUploadUserInput" :key="key" class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-4 py-2 font-medium align-top">{{ key }}</td>
+                        <td class="border border-gray-300 px-4 py-2 align-top break-words">
+                          <div class="text-sm" :title="val">{{ val || '-' }}</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div v-else class="text-sm text-gray-500">No desired values saved yet. Click "Edit Desired Values" to add them.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -144,6 +236,7 @@
               </div>
             </div>
           </div>
+
         </div>
         <div class="mt-6 flex justify-end gap-3">
           <button @click="showUploadModal = false" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Cancel</button>
@@ -155,7 +248,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import api from '../api/axios'
 
@@ -173,11 +266,15 @@ const textFields = ref([])
 const userForm = ref({})
 const selectedUploadId = ref('')
 const selectedUpload = ref(null)
+const selectedUploadUserInput = ref({})
 const uploadResults = ref(null)
 const currentUploadResults = ref(null)
 const loadingResults = ref(false)
 const job = ref(null)
 const validating = ref(false)
+const userInputLoading = ref(false)
+const userInputSaving = ref(false)
+const editingUserValues = ref(false)
 let pollTimer = null
 
 // Modal state for upload + user form
@@ -321,6 +418,7 @@ async function submitUploadWithUserForm() {
 async function submitUserForm() {
   if (!selectedUploadId.value) return
   try {
+    userInputSaving.value = true
     const json = JSON.stringify(userForm.value)
     const file = new Blob([json], { type: 'application/json' })
     const form = new FormData()
@@ -329,10 +427,14 @@ async function submitUserForm() {
       headers: { 'Content-Type': 'multipart/form-data' }
     })
     await loadUploads()
-    alert('User input submitted successfully')
+    await loadUploadUserInput(selectedUploadId.value)
+    editingUserValues.value = false
+    alert('User values saved successfully')
   } catch (error) {
     console.error('Failed to submit user form:', error)
     alert('Failed to submit user form')
+  } finally {
+    userInputSaving.value = false
   }
 }
 
@@ -368,14 +470,18 @@ async function startValidation() {
 function selectUpload(upload) {
   selectedUpload.value = upload
   selectedUploadId.value = upload.id
-  loadUploadResults(upload.id)
+  editingUserValues.value = false
+  selectedUploadUserInput.value = {}
 }
 
 watch(selectedUpload, async (upload) => {
   if (upload) {
     await loadUploadResults(upload.id)
+    await loadUploadUserInput(upload.id)
   } else {
     currentUploadResults.value = null
+    selectedUploadUserInput.value = {}
+    editingUserValues.value = false
   }
 })
 
@@ -390,6 +496,47 @@ async function loadUploadResults(uploadId) {
   } finally {
     loadingResults.value = false
   }
+}
+
+async function loadUploadUserInput(uploadId) {
+  userInputLoading.value = true
+  try {
+    const { data } = await api.get(`/api/documents/upload/${uploadId}/user-input`)
+    selectedUploadUserInput.value = data
+  } catch (error) {
+    selectedUploadUserInput.value = {}
+    if (error?.response?.status !== 404) {
+      console.error('Failed to load user input:', error)
+    }
+  } finally {
+    userInputLoading.value = false
+    const fields = textFields.value.length ? textFields.value : Object.keys(selectedUploadUserInput.value)
+    const obj = {}
+    fields.forEach((field) => {
+      obj[field] = selectedUploadUserInput.value[field] ?? ''
+    })
+    userForm.value = obj
+  }
+}
+
+function startEditUserValues() {
+  const fields = textFields.value.length ? textFields.value : Object.keys(selectedUploadUserInput.value)
+  const obj = {}
+  fields.forEach((field) => {
+    obj[field] = selectedUploadUserInput.value[field] ?? ''
+  })
+  userForm.value = obj
+  editingUserValues.value = true
+}
+
+function cancelEditUserValues() {
+  editingUserValues.value = false
+  const fields = textFields.value.length ? textFields.value : Object.keys(selectedUploadUserInput.value)
+  const obj = {}
+  fields.forEach((field) => {
+    obj[field] = selectedUploadUserInput.value[field] ?? ''
+  })
+  userForm.value = obj
 }
 
 function getAccuracyClass(accuracy) {
@@ -409,6 +556,11 @@ function goBack() {
   } else {
     router.push('/projects')
   }
+}
+
+function goToUploadDetail() {
+  if (!selectedUpload.value) return
+  router.push({ name: 'upload-detail', params: { documentId, uploadId: selectedUpload.value.id } })
 }
 
 async function exportExcel() {
@@ -440,6 +592,12 @@ onMounted(async () => {
   await loadDocument()
   await loadUploads()
   await loadTextFields()
+})
+
+onUnmounted(() => {
+  if (pollTimer) {
+    clearInterval(pollTimer)
+  }
 })
 </script>
 

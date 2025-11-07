@@ -93,6 +93,9 @@ def _validate_single_upload(
         # Compare fields
         field_scores, overall = compare_fields(user_text_fields, ocr_text_fields)
 
+        # Remove previous validation results for this upload so we only keep the latest run
+        db["validation_results"].delete_many({"upload_id": upload_id})
+
         results: list[schemas.ValidationFieldResult] = []
         for key, user_val in user_text_fields.items():
             ocr_val = ocr_text_fields.get(key, "")
@@ -254,11 +257,16 @@ def get_validation_result(job_id: str, db: Database = Depends(get_db)):
 def get_upload_validation_results(upload_id: str, db: Database = Depends(get_db)):
     """Get validation results for a specific upload"""
     results = db["validation_results"].find({"upload_id": upload_id}).sort("created_at", -1)
-    out = []
+    out: list[schemas.ValidationFieldResult] = []
+    seen_fields: set[str] = set()
     for r in results:
+        field_name = r.get("field_name")
+        if field_name in seen_fields:
+            continue
+        seen_fields.add(field_name)
         out.append(
             schemas.ValidationFieldResult(
-                field_name=r.get("field_name"),
+                field_name=field_name,
                 user_value=r.get("user_value"),
                 ocr_value=r.get("ocr_value"),
                 accuracy=r.get("accuracy"),

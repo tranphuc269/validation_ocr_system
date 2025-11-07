@@ -1,158 +1,248 @@
 <template>
   <div>
-    <button @click="goBack" class="text-blue-600 hover:text-blue-700 mb-4 flex items-center gap-2">
-      ← Back
+    <button @click="goBack" class="text-blue-600 hover:text-blue-700 mb-6 flex items-center gap-2 transition-colors font-medium">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+      </svg>
+      Back
     </button>
 
-    <div v-if="loading" class="text-center py-12">
-      <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+    <div v-if="loading" class="text-center py-20">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-200 border-t-blue-600"></div>
+      <p class="mt-4 text-gray-600">Loading upload details...</p>
     </div>
-    <div v-else-if="error" class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-      {{ error }}
+    <div v-else-if="error" class="bg-red-50 border-2 border-red-200 text-red-700 px-6 py-4 rounded-xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span class="font-medium">{{ error }}</span>
+      </div>
     </div>
     <div v-else class="space-y-6">
-      <div class="bg-white rounded-lg shadow p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-        <div>
-          <h1 class="text-2xl font-bold text-gray-900">{{ document?.name }}</h1>
-          <p class="text-sm text-gray-500 mt-1 break-all">File: {{ upload?.file_path?.split('/').pop() }}</p>
-          <p class="text-sm text-gray-500">Uploaded: {{ formatDate(upload?.created_at) }}</p>
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900">{{ document?.name }}</h1>
+            <div class="flex flex-wrap items-center gap-4 mt-2">
+              <p class="text-sm text-gray-600 flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span class="break-all">{{ upload?.file_path?.split('/').pop() }}</span>
+              </p>
+              <p class="text-sm text-gray-500 flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Uploaded {{ formatDate(upload?.created_at) }}
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="text-right">
-          <p class="text-sm text-gray-600">Overall Accuracy</p>
-          <p class="text-2xl font-semibold text-blue-600">{{ overallAccuracy }}</p>
+        <div class="text-right px-6 py-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+          <p class="text-sm text-gray-600 mb-1">Overall Accuracy</p>
+          <p class="text-3xl font-bold text-blue-600">{{ overallAccuracy }}</p>
         </div>
       </div>
 
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-          <div class="border-b px-6 py-4 flex items-center justify-between">
-            <h2 class="text-lg font-semibold">Preview</h2>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+          <div class="border-b border-gray-200 px-6 py-4 bg-gradient-to-r from-gray-50 to-gray-100 flex items-center justify-between">
+            <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+              Preview
+            </h2>
             <a
               :href="downloadUrl"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl font-medium"
               download
             >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
               Download
             </a>
           </div>
-          <div class="bg-gray-900 flex items-center justify-center min-h-[360px]">
+          <div class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center min-h-[480px] p-4">
             <div v-if="previewLoading" class="text-white text-center">
-              <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-white mb-3"></div>
-              <p>Loading preview...</p>
+              <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-white/30 border-t-white mb-4"></div>
+              <p class="font-medium">Loading preview...</p>
             </div>
             <div v-else-if="previewError" class="text-gray-100 text-center px-6">
-              {{ previewError }}
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-500/20 mb-4">
+                <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <p class="font-medium">{{ previewError }}</p>
             </div>
-            <img v-else-if="previewUrl && previewType.startsWith('image/')" :src="previewUrl" alt="Preview" class="max-h-[480px] max-w-full object-contain" />
+            <img v-else-if="previewUrl && previewType.startsWith('image/')" :src="previewUrl" alt="Preview" class="max-h-[600px] max-w-full object-contain rounded-lg shadow-2xl" />
             <div v-else class="text-gray-100 text-center px-6">
-              Preview not available. Use the download button instead.
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-500/20 mb-4">
+                <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+              </div>
+              <p class="font-medium mb-2">Preview not available</p>
+              <p class="text-sm text-gray-400">Use the download button to view the file</p>
             </div>
           </div>
         </div>
 
         <div class="space-y-6">
-          <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-lg font-semibold mb-4">Validation Results</h2>
-            <div v-if="resultsLoading" class="text-center py-6">
-              <div class="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+          <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+            <h2 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Validation Results
+            </h2>
+            <div v-if="resultsLoading" class="text-center py-12">
+              <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-blue-200 border-t-blue-600"></div>
+              <p class="mt-4 text-gray-600">Loading results...</p>
             </div>
-            <div v-else-if="validationResults.length" class="overflow-x-auto">
+            <div v-else-if="validationResults.length" class="overflow-x-auto rounded-xl border border-gray-200">
               <table class="w-full border-collapse min-w-[480px]">
                 <thead>
-                  <tr class="bg-gray-100">
-                    <th class="border border-gray-300 px-4 py-2 text-left w-[140px]">Field</th>
-                    <th class="border border-gray-300 px-4 py-2 text-left">User Value</th>
-                    <th class="border border-gray-300 px-4 py-2 text-left">OCR Value</th>
-                    <th class="border border-gray-300 px-4 py-2 text-left w-[100px]">Accuracy</th>
+                  <tr class="bg-gradient-to-r from-gray-50 to-gray-100">
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200 w-[140px]">Field</th>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">User Value</th>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">OCR Value</th>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200 w-[120px]">Accuracy</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr v-for="r in validationResults" :key="r.field_name" class="hover:bg-gray-50">
-                    <td class="border border-gray-300 px-4 py-2 font-medium align-top">{{ r.field_name }}</td>
-                    <td class="border border-gray-300 px-4 py-2 align-top break-words">
-                      <div class="text-sm" :title="r.user_value">{{ r.user_value || '-' }}</div>
+                <tbody class="divide-y divide-gray-200">
+                  <tr v-for="r in validationResults" :key="r.field_name" class="hover:bg-gray-50 transition-colors">
+                    <td class="px-4 py-3 font-semibold text-gray-900 align-top">{{ r.field_name }}</td>
+                    <td class="px-4 py-3 align-top break-words">
+                      <div class="text-sm text-gray-700" :title="r.user_value">{{ r.user_value || '-' }}</div>
                     </td>
-                    <td class="border border-gray-300 px-4 py-2 align-top break-words">
-                      <div class="text-sm" :title="r.ocr_value">{{ r.ocr_value || '-' }}</div>
+                    <td class="px-4 py-3 align-top break-words">
+                      <div class="text-sm text-gray-700" :title="r.ocr_value">{{ r.ocr_value || '-' }}</div>
                     </td>
-                    <td class="border border-gray-300 px-4 py-2 align-top">
-                      <span :class="getAccuracyClass(r.accuracy)" class="font-semibold">{{ (r.accuracy * 100).toFixed(2) }}%</span>
+                    <td class="px-4 py-3 align-top">
+                      <span :class="getAccuracyClass(r.accuracy)" class="font-bold text-lg">{{ (r.accuracy * 100).toFixed(2) }}%</span>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div v-else class="text-sm text-gray-500">
-              No validation results yet. Run validation from the document detail page.
+            <div v-else class="text-center py-12">
+              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-100 mb-4">
+                <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+              </div>
+              <p class="text-gray-600 font-medium mb-2">No validation results yet</p>
+              <p class="text-sm text-gray-500">Run validation from the document detail page</p>
             </div>
           </div>
 
-          <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center justify-between mb-4">
-              <h2 class="text-lg font-semibold">Desired User Values</h2>
+          <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                </svg>
+                Desired User Values
+              </h2>
               <div class="flex items-center gap-2">
-                <button v-if="editing" @click="cancelEditing" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Cancel</button>
+                <button v-if="editing" @click="cancelEditing" class="px-4 py-2 border border-gray-300 rounded-xl hover:bg-gray-50 transition font-medium">Cancel</button>
                 <button
                   v-if="!editing"
                   @click="startEditing"
                   :disabled="userValuesLoading"
-                  class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
+                  class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 transition-all shadow-md hover:shadow-lg font-medium flex items-center gap-2"
                 >
-                  Edit Desired Values
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                  </svg>
+                  Edit Values
                 </button>
               </div>
             </div>
 
-            <div v-if="userValuesLoading" class="text-center py-6">
-              <div class="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+            <div v-if="userValuesLoading" class="text-center py-12">
+              <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-blue-200 border-t-blue-600"></div>
+              <p class="mt-4 text-gray-600">Loading user values...</p>
             </div>
             <div v-else>
               <div v-if="editing">
                 <div v-if="Object.keys(userForm).length" class="space-y-4">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div v-for="field in Object.keys(userForm)" :key="field">
-                      <label class="block text-sm font-medium text-gray-700 mb-1">{{ field }}</label>
+                    <div v-for="field in Object.keys(userForm)" :key="field" class="bg-gray-50 rounded-lg p-4">
+                      <label class="block text-sm font-semibold text-gray-700 mb-2">{{ field }}</label>
                       <input
                         v-model="userForm[field]"
                         type="text"
                         :placeholder="`Enter ${field}`"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                       />
                     </div>
                   </div>
-                  <div class="flex justify-end gap-3">
-                    <button @click="cancelEditing" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Cancel</button>
+                  <div class="flex justify-end gap-3 pt-4 border-t border-gray-200">
+                    <button @click="cancelEditing" class="px-6 py-2.5 border border-gray-300 rounded-xl hover:bg-gray-50 transition font-medium">Cancel</button>
                     <button
                       @click="saveUserValues"
                       :disabled="savingValues"
-                      class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400"
+                      class="px-6 py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-700 hover:to-emerald-700 disabled:from-gray-400 disabled:to-gray-500 transition-all shadow-lg hover:shadow-xl font-medium flex items-center gap-2"
                     >
+                      <svg v-if="!savingValues" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <svg v-else class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                      </svg>
                       {{ savingValues ? 'Saving...' : 'Save Values' }}
                     </button>
                   </div>
                 </div>
-                <div v-else class="text-sm text-gray-500">No fields available to edit. Upload a sample JSON first.</div>
+                <div v-else class="text-center py-12">
+                  <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
+                    <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-600 font-medium">No fields available to edit</p>
+                  <p class="text-sm text-gray-500 mt-1">Upload a sample JSON first</p>
+                </div>
               </div>
               <div v-else>
-                <div v-if="Object.keys(userValues).length" class="overflow-x-auto">
+                <div v-if="Object.keys(userValues).length" class="overflow-x-auto rounded-xl border border-gray-200">
                   <table class="w-full border-collapse min-w-[480px]">
                     <thead>
-                      <tr class="bg-gray-100">
-                        <th class="border border-gray-300 px-4 py-2 text-left w-[160px]">Field</th>
-                        <th class="border border-gray-300 px-4 py-2 text-left">User Value</th>
+                      <tr class="bg-gradient-to-r from-gray-50 to-gray-100">
+                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200 w-[160px]">Field</th>
+                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200">User Value</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr v-for="(val, key) in userValues" :key="key" class="hover:bg-gray-50">
-                        <td class="border border-gray-300 px-4 py-2 font-medium align-top">{{ key }}</td>
-                        <td class="border border-gray-300 px-4 py-2 align-top break-words">
-                          <div class="text-sm" :title="val">{{ val || '-' }}</div>
+                    <tbody class="divide-y divide-gray-200">
+                      <tr v-for="(val, key) in userValues" :key="key" class="hover:bg-gray-50 transition-colors">
+                        <td class="px-4 py-3 font-semibold text-gray-900 align-top">{{ key }}</td>
+                        <td class="px-4 py-3 align-top break-words">
+                          <div class="text-sm text-gray-700" :title="val">{{ val || '-' }}</div>
                         </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <div v-else class="text-sm text-gray-500">No desired values saved yet.</div>
+                <div v-else class="text-center py-12">
+                  <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
+                    <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-600 font-medium">No desired values saved yet</p>
+                </div>
               </div>
             </div>
           </div>

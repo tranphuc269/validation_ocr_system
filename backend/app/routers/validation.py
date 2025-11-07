@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 from typing import Any
 
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
@@ -9,6 +8,7 @@ from ..database import get_db
 from .. import crud, schemas
 from ..utils.ocr import call_ocr
 from ..utils.validation import extract_text_fields, compare_fields
+from ..storage import storage_service
 
 
 router = APIRouter()
@@ -33,7 +33,7 @@ def _validate_single_upload(
                 error="Upload has no user input JSON"
             )
         
-        user_fields_obj: dict[str, Any] = json.loads(Path(user_input_path).read_text(encoding="utf-8"))
+        user_fields_obj: dict[str, Any] = json.loads(storage_service.read_text(user_input_path))
 
         # The user input JSON is expected to be a flat dict of key -> value from the generated form
         if not isinstance(user_fields_obj, dict):
@@ -67,7 +67,7 @@ def _validate_single_upload(
                     error="Sample JSON not uploaded for document"
                 )
             try:
-                ocr_json = json.loads(Path(sample_path).read_text(encoding="utf-8"))
+                ocr_json = json.loads(storage_service.read_text(sample_path))
             except Exception as e:
                 return schemas.ValidationUploadResult(
                     upload_id=upload_id,
@@ -77,7 +77,17 @@ def _validate_single_upload(
                 )
         else:
             try:
-                ocr_json = call_ocr(ocr_url, file_path)
+                if not file_path:
+                    return schemas.ValidationUploadResult(
+                        upload_id=upload_id,
+                        results=[],
+                        overall_accuracy=0.0,
+                        error="Upload is missing file path"
+                    )
+                identifier = str(file_path)
+                file_bytes = storage_service.read_bytes(identifier)
+                filename = identifier.split("/")[-1]
+                ocr_json = call_ocr(ocr_url, filename, file_bytes)
             except Exception as e:
                 crud.log_event(db, "ERROR", f"OCR request failed for upload {upload_id}", context=str(e))
                 return schemas.ValidationUploadResult(

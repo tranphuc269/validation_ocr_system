@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  minio:
+    image: minio/minio:RELEASE.2024-09-22T00-33-43Z
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+
+  backend:
+    build:
+      context: ./backend
+    image: validation_ocr_backend:${BACKEND_TAG:-dev}
+    environment:
+      VOS_MONGO_URL: mongodb://mongo:27017
+      VOS_MONGO_DB: validation_ocr
+      VOS_STORAGE_BACKEND: MINIO
+      VOS_MINIO_ENDPOINT: http://minio:9000
+      VOS_MINIO_BUCKET: validation-ocr
+      VOS_MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      VOS_MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      VOS_MINIO_SECURE: "false"
+    depends_on:
+      - mongo
+      - minio
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    image: validation_ocr_frontend:${FRONTEND_TAG:-dev}
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
+  minio_data:
+
+

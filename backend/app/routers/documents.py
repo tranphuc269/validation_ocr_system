@@ -4,7 +4,7 @@ from datetime import datetime
 from io import BytesIO
 
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Request
-from fastapi.responses import StreamingResponse, FileResponse
+from fastapi.responses import StreamingResponse
 from pymongo.database import Database
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -13,6 +13,7 @@ from ..config import settings
 from ..database import get_db
 from .. import crud, schemas
 from ..utils.validation import extract_text_fields
+from ..storage import storage_service
 
 
 router = APIRouter()
@@ -62,10 +63,9 @@ async def upload_sample_json(doc_id: str, sample: UploadFile = File(...), db: Da
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid JSON content")
 
-    out_path = Path(settings.storage_dir) / "samples" / f"doc_{doc_id}_sample.json"
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_bytes(content)
-    updated = crud.set_document_sample_json_path(db, doc_id, str(out_path))
+    key = f"samples/doc_{doc_id}_sample.json"
+    identifier = storage_service.save_bytes(key, content, content_type="application/json")
+    updated = crud.set_document_sample_json_path(db, doc_id, identifier)
     if not updated:
         raise HTTPException(status_code=404, detail="Document not found")
     serialized = crud.serialize_document(updated)
@@ -83,7 +83,7 @@ def get_text_fields(doc_id: str, db: Database = Depends(get_db)):
     if not sample_path:
         raise HTTPException(status_code=400, detail="Sample JSON not uploaded for document")
     try:
-        parsed = json.loads(Path(sample_path).read_text(encoding="utf-8"))
+        parsed = json.loads(storage_service.read_text(sample_path))
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid sample JSON content")
     fields_map = extract_text_fields(parsed)
@@ -99,9 +99,9 @@ async def upload_file(doc_id: str, file: UploadFile = File(...), db: Database = 
     if ext not in {".pdf", ".png", ".jpg", ".jpeg", ".tif", ".tiff"}:
         raise HTTPException(status_code=400, detail="Unsupported file type")
     content = await file.read()
-    out_path = Path(settings.storage_dir) / "uploads" / f"doc_{doc_id}_{file.filename}"
-    out_path.write_bytes(content)
-    return crud.create_upload(db, doc_id, str(out_path))
+    key = f"uploads/doc_{doc_id}_{file.filename}"
+    identifier = storage_service.save_bytes(key, content, content_type=file.content_type or "application/octet-stream")
+    return crud.create_upload(db, doc_id, identifier)
 
 
 @router.post("/{upload_id}/user-input", response_model=schemas.UploadOut)
@@ -114,10 +114,9 @@ async def upload_user_input(upload_id: str, form_json: UploadFile = File(...), d
         _ = json.loads(content.decode("utf-8"))
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid JSON content")
-    out_path = Path(settings.storage_dir) / "user_inputs" / f"upload_{upload_id}_user.json"
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_bytes(content)
-    updated = crud.set_upload_user_input(db, upload_id, str(out_path))
+    key = f"user_inputs/upload_{upload_id}_user.json"
+    identifier = storage_service.save_bytes(key, content, content_type="application/json")
+    updated = crud.set_upload_user_input(db, upload_id, identifier)
     if not updated:
         raise HTTPException(status_code=404, detail="Upload not found")
     serialized = crud.serialize_upload(updated)
@@ -166,11 +165,8 @@ def get_upload_user_input(upload_id: str, db: Database = Depends(get_db)):
     path = upload.get("user_input_json_path")
     if not path:
         raise HTTPException(status_code=404, detail="User input not uploaded")
-    file_path = Path(path)
-    if not file_path.exists():
-        raise HTTPException(status_code=404, detail="User input file missing")
     try:
-        data = json.loads(file_path.read_text(encoding="utf-8"))
+        data = json.loads(storage_service.read_text(path))
         if not isinstance(data, dict):
             raise ValueError("Invalid JSON structure")
         normalized: dict[str, str] = {}
@@ -183,7 +179,7 @@ def get_upload_user_input(upload_id: str, db: Database = Depends(get_db)):
         raise HTTPException(status_code=400, detail="Invalid user input JSON content")
 
 
-@router.get("/upload/{upload_id}/file")
+@router.get("/upload/{upload_id}/file", name="get_upload_file")
 def get_upload_file(upload_id: str, db: Database = Depends(get_db)):
     upload = crud.get_upload_raw(db, upload_id)
     if not upload:
@@ -191,10 +187,9 @@ def get_upload_file(upload_id: str, db: Database = Depends(get_db)):
     file_path = upload.get("file_path")
     if not file_path:
         raise HTTPException(status_code=404, detail="File not found")
-    path = Path(file_path)
-    if not path.exists():
-        raise HTTPException(status_code=404, detail="File missing on server")
-    return FileResponse(path, filename=path.name)
+    identifier = str(file_path)
+    name = identifier.split("/")[-1] if identifier else "download"
+    return storage_service.file_response(identifier, download_name=name)
 
 
 @router.get("/{doc_id}/export-excel")

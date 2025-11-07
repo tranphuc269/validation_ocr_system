@@ -48,6 +48,41 @@ def get_document(doc_id: str, db: Database = Depends(get_db)):
     return crud.serialize_document(doc)  # type: ignore
 
 
+@router.delete("/{doc_id}")
+def delete_document(doc_id: str, db: Database = Depends(get_db)):
+    doc = crud.get_document_raw(db, doc_id)
+    if not doc:
+        raise HTTPException(status_code=404, detail="Document not found")
+    
+    # Delete sample JSON if exists
+    if doc.get("sample_json_path"):
+        try:
+            storage_service.delete_file(doc["sample_json_path"])
+        except Exception:
+            pass
+    
+    # Get all uploads for this document and delete their files
+    uploads = db["uploads"].find({"document_id": doc_id})
+    for upload in uploads:
+        # Delete uploaded file
+        if upload.get("file_path"):
+            try:
+                storage_service.delete_file(upload["file_path"])
+            except Exception:
+                pass
+        # Delete user input JSON if exists
+        if upload.get("user_input_json_path"):
+            try:
+                storage_service.delete_file(upload["user_input_json_path"])
+            except Exception:
+                pass
+    
+    success = crud.delete_document(db, doc_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return {"message": "Document deleted successfully"}
+
+
 @router.post("/{doc_id}/sample-json", response_model=schemas.DocumentOut)
 async def upload_sample_json(doc_id: str, sample: UploadFile = File(...), db: Database = Depends(get_db)):
     if not sample.filename.endswith(".json"):
@@ -155,6 +190,32 @@ def get_upload(upload_id: str, db: Database = Depends(get_db)):
         user_input_json_path=upload.get("user_input_json_path"),
         created_at=upload.get("created_at"),
     )
+
+
+@router.delete("/upload/{upload_id}")
+def delete_upload(upload_id: str, db: Database = Depends(get_db)):
+    upload = crud.get_upload_raw(db, upload_id)
+    if not upload:
+        raise HTTPException(status_code=404, detail="Upload not found")
+    
+    # Delete uploaded file
+    if upload.get("file_path"):
+        try:
+            storage_service.delete_file(upload["file_path"])
+        except Exception:
+            pass
+    
+    # Delete user input JSON if exists
+    if upload.get("user_input_json_path"):
+        try:
+            storage_service.delete_file(upload["user_input_json_path"])
+        except Exception:
+            pass
+    
+    success = crud.delete_upload(db, upload_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Upload not found")
+    return {"message": "Upload deleted successfully"}
 
 
 @router.get("/upload/{upload_id}/user-input", response_model=dict[str, str])

@@ -8,6 +8,10 @@ class ProjectCreate(BaseModel):
     name: str
 
 
+class ProjectUpdate(BaseModel):
+    name: Optional[str] = None
+
+
 class ProjectOut(BaseModel):
     id: str
     name: str

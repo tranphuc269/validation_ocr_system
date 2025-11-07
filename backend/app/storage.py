@@ -126,6 +126,20 @@ class StorageService:
     def read_text(self, identifier: str) -> str:
         return self.read_bytes(identifier).decode("utf-8")
 
+    # ---------- Delete operations ----------
+    def delete_file(self, identifier: str) -> None:
+        """Delete a file by its identifier"""
+        if self._is_minio(identifier):
+            key = self._key_from_identifier(identifier)
+            try:
+                self.client.delete_object(Bucket=self.bucket, Key=key)
+            except ClientError:
+                pass  # File might not exist, ignore
+        else:
+            path = Path(identifier)
+            if path.exists():
+                path.unlink()
+
     # ---------- Response helpers ----------
     def file_response(self, identifier: str, download_name: Optional[str] = None):
         if self._is_minio(identifier):

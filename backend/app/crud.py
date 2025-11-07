@@ -34,6 +34,28 @@ def get_project(db: Database, project_id: str) -> Optional[dict]:
     return serialize_project(it) if it else None
 
 
+def update_project(db: Database, project_id: str, payload: schemas.ProjectUpdate) -> Optional[dict]:
+    updates = {k: v for k, v in payload.model_dump(exclude_unset=True).items() if v is not None}
+    if not updates:
+        it = db["projects"].find_one({"_id": _oid(project_id)})
+        return serialize_project(it) if it else None
+    it = db["projects"].find_one_and_update({"_id": _oid(project_id)}, {"$set": updates}, return_document=True)
+    return serialize_project(it) if it else None
+
+
+def delete_project(db: Database, project_id: str) -> bool:
+    """Delete project and all associated documents and uploads"""
+    result = db["projects"].delete_one({"_id": _oid(project_id)})
+    if result.deleted_count > 0:
+        # Delete all documents in this project
+        docs = db["documents"].find({"project_id": project_id})
+        doc_ids = [str(doc["_id"]) for doc in docs]
+        for doc_id in doc_ids:
+            delete_document(db, doc_id)
+        return True
+    return False
+
+
 def create_document(db: Database, payload: schemas.DocumentCreate) -> dict:
     doc = {
         "project_id": payload.project_id,
@@ -95,12 +117,36 @@ def get_upload_raw(db: Database, upload_id: str) -> Optional[dict]:
 
 
 def list_uploads_by_document(db: Database, document_id: str) -> list[dict]:
-    """Get all uploads for a document that have user_input_json_path set"""
-    items = db["uploads"].find({
-        "document_id": document_id,
-        "user_input_json_path": {"$ne": None}
-    }).sort("created_at", -1)
-    return list(items)
+    """Get all uploads for a document"""
+    items = db["uploads"].find({"document_id": document_id}).sort("created_at", -1)
+    return [serialize_upload(it) for it in items]
+
+
+def delete_document(db: Database, doc_id: str) -> bool:
+    """Delete document and all associated uploads and validation results"""
+    result = db["documents"].delete_one({"_id": _oid(doc_id)})
+    if result.deleted_count > 0:
+        # Delete all uploads in this document
+        uploads = db["uploads"].find({"document_id": doc_id})
+        upload_ids = [str(upload["_id"]) for upload in uploads]
+        for upload_id in upload_ids:
+            delete_upload(db, upload_id)
+        # Delete all validation results for this document
+        db["validation_results"].delete_many({"document_id": doc_id})
+        # Delete all validation jobs for this document
+        db["validation_jobs"].delete_many({"document_id": doc_id})
+        return True
+    return False
+
+
+def delete_upload(db: Database, upload_id: str) -> bool:
+    """Delete upload and associated validation results"""
+    result = db["uploads"].delete_one({"_id": _oid(upload_id)})
+    if result.deleted_count > 0:
+        # Delete all validation results for this upload
+        db["validation_results"].delete_many({"upload_id": upload_id})
+        return True
+    return False
 
 
 def add_validation_result(
